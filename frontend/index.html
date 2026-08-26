@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <header>
+        <a class="brand" href="/" aria-label="SkyCast home">
+            <span class="brand-mark"><i class="fa-solid fa-cloud-sun"></i></span>
+            <span><strong>SkyCast</strong><small>Weather, at a glance</small></span>
+        </a>
+        <div class="header-actions">
+            <span class="live-indicator"><span></span> Live conditions</span>
+            <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+        <div class="search-box">
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Search for a city..."
+                aria-label="City name">
+
+            <button id="searchBtn" type="button" aria-label="Search weather" title="Search weather">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </header>
+    <section class="current-weather">
+        <div class="left weather-overview">
+            <p class="eyebrow"><i class="fa-solid fa-location-dot"></i> Current weather</p>
+            <h2 id="cityName">
+                New Delhi
+            </h2>
+            <p id="currentDateTime" class="current-date-time">Monday, Aug 14, 10:00 AM</p>
+            <div class="temperature-row">
+            <h1 id="temp">
+                30°C
+            </h1>
+            <img
+                id="weatherIcon"
+                src=""
+                alt="Weather">
+            </div>
+            <h3 id="weatherType">Sunny</h3>
+            <p class="feels-like">Clear skies and a calm start to the day</p>
+        </div>
+        <div class="right">
+            <div class="card">
+                <i class="fa-solid fa-droplet"></i>
+                <h4>Humidity</h4>
+                <p id="humidity">--%</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-wind"></i>
+                <h4>Wind</h4>
+                <p id="wind">-- km/h</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-cloud-rain"></i>
+                <h4>Rain</h4>
+                <p id="rain">--%</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-eye"></i>
+                <h4>Visibility</h4>
+                <p id="visibility">-- km</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <h4>Pressure</h4>
+                <p id="pressure">-- hPa</p>
+            </div>
+        </div>
+    </section>
+    <section class="extra">
+        <div class="sun">
+            <div class="section-heading">
+                <div><p class="eyebrow">Daylight</p><h2>Sunrise & Sunset</h2></div>
+                <i class="fa-solid fa-sun"></i>
+            </div>
+            <div class="box">
+                <div>
+                    <i class="fa-solid fa-sun sunrise-icon"></i>
+                    <h3>Sunrise</h3>
+                    <p id="sunrise">--:--</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-moon sunset-icon"></i>
+                    <h3>Sunset</h3>
+                    <p id="sunset">--:--</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="section-heading forecast-heading"><div><p class="eyebrow">Next 24 hours</p><h2 class="title">Hourly forecast</h2></div><i class="fa-solid fa-clock"></i></div>
+        <div id="hourlyForecast" class="hourly">
+        </div>
+    </section>
+    <section>
+        <div class="section-heading forecast-heading"><div><p class="eyebrow">Plan ahead</p><h2 class="title">7-day forecast</h2></div><i class="fa-solid fa-calendar-days"></i></div>
+        <div id="weeklyForecast" class="weekly">
+        </div>
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

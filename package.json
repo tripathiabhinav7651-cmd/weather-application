@@ -1,0 +1,13 @@
+{
+  "name": "weather-app-backend",
+  "version": "1.0.0",
+  "description": "Backend for the weather application",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
