@@ -635,6 +635,17 @@ function showWeeklyForecastOpenMeteo(daily) {
         Math.min(daily.time.length, 7);
 
 
+    const emojiMap = {
+        "Clear": "☀️",
+        "Cloudy": "☁️",
+        "Fog": "🌫️",
+        "Rain": "🌧️",
+        "Snow": "❄️",
+        "Thunderstorm": "⛈️",
+        "Weather": "🌤️"
+    };
+
+
     for (
         let index = 0;
         index < totalDays;
@@ -663,16 +674,6 @@ function showWeeklyForecastOpenMeteo(daily) {
 
         const minTemperature =
             daily.temperature_2m_min[index];
-
-        const emojiMap = {
-            "Clear": "☀️",
-            "Cloudy": "☁️",
-            "Fog": "🌫️",
-            "Rain": "🌧️",
-            "Snow": "❄️",
-            "Thunderstorm": "⛈️",
-            "Weather": "🌤️"
-        };
 
         const emoji = emojiMap[weather.label] || "🌤️";
 
