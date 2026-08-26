@@ -382,7 +382,7 @@ function updateCurrentWeatherOpenMeteo(data) {
 
 
     // ===============================
-    // WEATHER ICON
+    // WEATHER ICON (Using Emoji)
     // ===============================
 
     const weatherIcon =
@@ -390,11 +390,18 @@ function updateCurrentWeatherOpenMeteo(data) {
 
     if (weatherIcon) {
 
-        weatherIcon.src =
-            `https://openweathermap.org/img/wn/${weather.icon}@4x.png`;
+        const emojiMap = {
+            "Clear": "☀️",
+            "Cloudy": "☁️",
+            "Fog": "🌫️",
+            "Rain": "🌧️",
+            "Snow": "❄️",
+            "Thunderstorm": "⛈️",
+            "Weather": "🌤️"
+        };
 
-        weatherIcon.alt =
-            weather.label;
+        weatherIcon.textContent =
+            emojiMap[weather.label] || "🌤️";
     }
 
 
@@ -540,6 +547,17 @@ function showHourlyForecastOpenMeteo(hourly) {
         Math.min(hourly.time.length, 8);
 
 
+    const emojiMap = {
+        "Clear": "☀️",
+        "Cloudy": "☁️",
+        "Fog": "🌫️",
+        "Rain": "🌧️",
+        "Snow": "❄️",
+        "Thunderstorm": "⛈️",
+        "Weather": "🌤️"
+    };
+
+
     for (
         let index = 0;
         index < totalHours;
@@ -567,15 +585,16 @@ function showHourlyForecastOpenMeteo(hourly) {
             });
 
 
+        const emoji = emojiMap[weather.label] || "🌤️";
+
         hourlyForecast.innerHTML += `
             <div class="hour-card">
 
                 <h4>${itemTime}</h4>
 
-                <img
-                    src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"
-                    alt="${weather.label}"
-                >
+                <span style="font-size: 2em; display: block; margin: 5px 0;">
+                    ${emoji}
+                </span>
 
                 <p>
                     ${Math.round(temperature)}°C
@@ -642,20 +661,29 @@ function showWeeklyForecastOpenMeteo(daily) {
         const maxTemperature =
             daily.temperature_2m_max[index];
 
-
         const minTemperature =
             daily.temperature_2m_min[index];
 
+        const emojiMap = {
+            "Clear": "☀️",
+            "Cloudy": "☁️",
+            "Fog": "🌫️",
+            "Rain": "🌧️",
+            "Snow": "❄️",
+            "Thunderstorm": "⛈️",
+            "Weather": "🌤️"
+        };
+
+        const emoji = emojiMap[weather.label] || "🌤️";
 
         weeklyForecast.innerHTML += `
             <div class="week-card">
 
                 <h4>${date}</h4>
 
-                <img
-                    src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"
-                    alt="${weather.label}"
-                >
+                <span style="font-size: 2em; display: block; margin: 5px 0;">
+                    ${emoji}
+                </span>
 
                 <h3>
                     ${Math.round(maxTemperature)}°C
